@@ -76,69 +76,7 @@ Muts21)
 
 ### load metadata
 
-annot = load("annotation.csv")
-
-### put in same order
-
-sampleOrder = c("482",
-"483" ,
-"486",
-"489",
-"495" ,
-"497",
-"501" ,
-"504",
-
-"494",
-"498",
-
-"493" ,
-"515",
-"516",
-"517",
-"518",
-"519")
-
-annot = annot[match(sampleOrder, annot$sample),]
-
-annot$treated = rep("Yes", nrow(annot))
-annot$treated[which(annot$treatment == "/")] = "No"
-annot$treated[14] = "No"
-
-annot$treatmentGroup = rep(NA, nrow(annot))
-annot$treatmentGroup[which(annot$treatment == "ECp + TCpt" | annot$treatment == "TCpt")] = "Carboplatin"
-annot$treatmentGroup[which(annot$treatment == "ABVD")] = "ABVD"
-annot$treatmentGroup[which(annot$treatment == "A + T" | annot$treatment == "Ecp")] = "EC"
-
-sampleOrderAll = c("482",
-"483" ,
-"486",
-"489",
-"495" ,
-"497",
-"501" ,
-"504",
-
-"494",
-"498",
-
-"493" ,
-"515",
-"516",
-"517",
-"518",
-"519", 
-"9",
-"10",
-"11",
-"12",
-"13", 
-"17", 
-"18",
-"19",
-"20",
-"21")
-
+load("sampleAnnotation.Rdata")
 
 ### counts per sample 
 
